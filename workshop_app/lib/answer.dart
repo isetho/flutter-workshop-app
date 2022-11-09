@@ -9,12 +9,17 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      // margin: EdgeInsets.all(10),
+      width: 290,
+      height: 50,
+      margin: const EdgeInsets.all(10),
       child: ElevatedButton(
+        child: Text(answerText, textAlign: TextAlign.center),
         style: ElevatedButton.styleFrom(
-            primary: Colors.blue, onPrimary: Colors.white),
-        child: Text(answerText),
+            textStyle: const TextStyle(fontSize: 24),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
+            backgroundColor: const Color(0xFF283593),
+            foregroundColor: Colors.white),
         onPressed: selectHandler,
       ),
     );

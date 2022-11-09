@@ -15,15 +15,29 @@ class Quiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Question(questions[questionIndex]["questionText"] as String),
-        ...(questions[questionIndex]["answers"] as List<Map<String, Object>>)
-            .map((answer) {
-          return Answer(
-              () => answerQuestion(answer["score"]), answer["text"] as String);
-        }).toList()
-      ],
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      body: Container(
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/app_background.png"),
+              fit: BoxFit.cover),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Question(questions[questionIndex]["questionText"] as String),
+            ...(questions[questionIndex]["answers"]
+                    as List<Map<String, Object>>)
+                .map((answer) {
+              return Answer(() => answerQuestion(answer["score"]),
+                  answer["text"] as String);
+            }).toList()
+          ],
+        ),
+      ),
     );
   }
 }
