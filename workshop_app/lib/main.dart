@@ -1,68 +1,86 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import './quiz.dart';
+import './result.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// void main() {
+//   runApp(MyApp());
+// }
 
-  // This widget is the root of your application.
+// Single line main
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class _MyAppState extends State<MyApp> {
+  final _questions = const [
+    {
+      "questionText": "What is your favorite color?",
+      "answers": [
+        {"text": "Black", "score": 10},
+        {"text": "Red", "score": 5},
+        {"text": "Green", "score": 3},
+        {"text": "White", "score": 1}
+      ],
+    },
+    {
+      "questionText": "What is your favorite animal?",
+      "answers": [
+        {"text": "Rabbit", "score": 10},
+        {"text": "Snake", "score": 5},
+        {"text": "Elephant", "score": 3},
+        {"text": "Lion", "score": 1}
+      ],
+    },
+    {
+      "questionText": "What is your favorite season of the year?",
+      "answers": [
+        {"text": "Spring", "score": 10},
+        {"text": "Summer", "score": 5},
+        {"text": "Fall", "score": 3},
+        {"text": "Winter", "score": 1}
+      ],
+    },
+  ];
 
-  final String title;
+  var _questionIndex = 0;
+  var _totalScore = 0;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
+  void _resetQuiz() {
     setState(() {
-      _counter++;
+      _questionIndex = 0;
+      _totalScore = 0;
     });
   }
 
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
+    setState(() {
+      _questionIndex = _questionIndex + 1;
+    });
+
+    print(_questionIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("My First App"),
         ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                questions: _questions,
+                questionIndex: _questionIndex,
+                answerQuestion: _answerQuestion,
+              )
+            : Result(_totalScore, _resetQuiz),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
