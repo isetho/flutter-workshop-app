@@ -53,7 +53,6 @@ class Result extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 50),
-                  const SizedBox(height: 30),
                   SizedBox(
                     width: 256,
                     height: 67,
