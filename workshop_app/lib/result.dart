@@ -40,34 +40,7 @@ class Result extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Image(
-                    width: 103,
-                    height: 94,
-                    image: AssetImage("images/flame.png"),
-                  ),
-                  const SizedBox(height: 30),
-                  Text(
-                    result,
-                    style: const TextStyle(
-                        fontSize: 36, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 50),
-                  const SizedBox(height: 30),
-                  SizedBox(
-                    width: 256,
-                    height: 67,
-                    child: ElevatedButton(
-                      child: const Text("Ta quiz på nytt"),
-                      style: ElevatedButton.styleFrom(
-                          textStyle: const TextStyle(fontSize: 28),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(35)),
-                          backgroundColor: const Color(0xFF3076B1),
-                          foregroundColor: Colors.white),
-                      onPressed: resetHandler,
-                    ),
-                  )
+                  // TODO: Your styling here
                 ],
               ),
             ),
