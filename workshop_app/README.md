@@ -1,4 +1,4 @@
-# Flutter workshop app
-Startup flutter workshop application.
+# Flutter workshop app🔥
+Dette er skjelettet til applikasjonen vi skal bygge i dag! 
 
-This is the initial commit.
+Klon ned prosjektet for å begynne å bygge app UI.
