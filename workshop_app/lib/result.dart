@@ -16,7 +16,7 @@ class Result extends StatelessWidget {
     } else if (score <= 16) {
       resultText = "You are strange!";
     } else {
-      resultText = "You are a bad person";
+      resultText = "Yo what?";
     }
 
     return resultText;
@@ -30,7 +30,7 @@ class Result extends StatelessWidget {
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/app_background.png"),
+              image: AssetImage("images/app_background.png"),
               fit: BoxFit.cover),
         ),
         child: Row(
@@ -43,7 +43,7 @@ class Result extends StatelessWidget {
                   const Image(
                     width: 103,
                     height: 94,
-                    image: AssetImage("assets/images/flame.png"),
+                    image: AssetImage("images/flame.png"),
                   ),
                   const SizedBox(height: 30),
                   Text(
@@ -63,7 +63,7 @@ class Result extends StatelessWidget {
                           textStyle: const TextStyle(fontSize: 28),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(35)),
-                          backgroundColor: const Color(0xFF283593),
+                          backgroundColor: const Color(0xFF3076B1),
                           foregroundColor: Colors.white),
                       onPressed: resetHandler,
                     ),

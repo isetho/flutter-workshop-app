@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './question.dart';
-import './answer.dart';
+import 'question.dart';
+import 'answer.dart';
+import 'theme.dart';
 
 class Quiz extends StatelessWidget {
   final List<Map<String, Object>> questions;
@@ -21,7 +22,7 @@ class Quiz extends StatelessWidget {
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/app_background.png"),
+              image: AssetImage("images/app_background.png"),
               fit: BoxFit.cover),
         ),
         child: Column(

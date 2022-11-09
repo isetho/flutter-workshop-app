@@ -18,7 +18,7 @@ class Answer extends StatelessWidget {
             textStyle: const TextStyle(fontSize: 24),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
-            backgroundColor: const Color(0xFF283593),
+            backgroundColor: const Color(0xFF3076B1),
             foregroundColor: Colors.white),
         onPressed: selectHandler,
       ),
